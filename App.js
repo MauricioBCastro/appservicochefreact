@@ -1,21 +1,35 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, TextInput, TouchableOpacity, View, Image, SafeAreaView } from 'react-native';
+import { StyleSheet, Text, TextInput, TouchableOpacity, View, Image, SafeAreaView, ScrollView } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 
 
 export default function App() {
 
-  const [id, setId] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
 
+  /*validate = (text) => {
+    console.log(text);
+    let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
+    if (reg.test(text) === false) {
+      console.log("Email is Not Correct");
+      this.setState({ email: text })
+      return false;
+    }
+    else {
+      this.setState({ email: text })
+      console.log("Email is Correct");
+    }
+  }
+*/
   function handleSubmit() {
     alert('Clicou')
   }
 
   return (
-    <SafeAreaView style={styles.container}>
+    <ScrollView style={styles.container}>
       <Text style={styles.title}>CookerExpress</Text>
       {/* Lorem Ipsum extension */}
       {/*<Text style={styles.description}>Do non quis ut excepteur adipisicing sint exercitation esse ea excepteur. Adipisicing reprehenderit est proident consectetur culpa laborum pariatur velit magna mollit sint officia commodo. Ea velit occaecat mollit quis ipsum ad voluptate est enim dolor elit dolor.</Text>
@@ -33,9 +47,8 @@ export default function App() {
 
       <Text style={styles.titleId}>E-mail</Text>
 
-      <TextInput style={styles.inputid} 
-        value={id}
-        onChangeText={(id) => setId(id)}
+      <TextInput style={styles.inputemail} 
+        value={email}
         placeholder = "E-mail"
       />
 
@@ -57,7 +70,7 @@ export default function App() {
       <Text style={styles.noSign}>Não possui conta? Cadastre-se</Text>
 
       
-    </SafeAreaView>
+    </ScrollView>
     
   );
 }
@@ -66,13 +79,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#ffff',
-    fontFamily: 'Cochin'
+    fontFamily: 'normal'
   },
 
   title: {
     textAlign: 'center',
     fontWeight: 'bold',
     fontSize: 30,
+    fontFamily: 'serif',
     marginTop: 70,
     marginBottom: 40,
     color: 'black'
@@ -88,7 +102,7 @@ const styles = StyleSheet.create({
     color: 'white'
   },*/
 
-  inputid: {
+  inputemail: {
     padding: 13,
     backgroundColor: '#fff',
     borderRadius: 10,
@@ -123,7 +137,7 @@ const styles = StyleSheet.create({
 
   noSign: {
     alignSelf: 'center',
-    marginTop: -30
+    marginTop: -30,
   },
 
   button: {
@@ -133,11 +147,14 @@ const styles = StyleSheet.create({
     backgroundColor: '#c30608',
     padding: 15,
     borderRadius: 10,
-    marginTop: -5
+    marginTop: -5,
+    borderWidth: 1
   },
 
   buttonText: {
-    fontSize: 20
+    fontSize: 20,
+    color: '#ffff',
+    fontFamily: 'serif',
   },
 
   forgetPassword: {
@@ -151,10 +168,12 @@ const styles = StyleSheet.create({
   titleLogin: {
     fontSize: 30,
     fontWeight: 'bold',
+    fontFamily: 'serif',
     marginLeft: 40
   },
 
   titleLogindescription: {
-    marginLeft: 40
+    marginLeft: 40,
+    fontFamily: 'serif',
   },
 });
